@@ -6,6 +6,8 @@ import Home from './components/Home'
 import Inventory from './components/Inventory'
 import Profile from './components/Profile'
 import Details from './components/Details'
+import Blog from './views/Blog';
+import BlogSingle from './views/BlogSingle';
 
 export default function App() {
   return (
@@ -17,6 +19,7 @@ export default function App() {
           <li><Link to="/inventory">Inventory</Link></li>
           <li><Link to="/profile">Profile</Link></li>
           <li><Link to="/details">Details</Link></li>
+          <li><Link to="/blog">Blog</Link></li>
         </ul>
       </nav>
       <Routes>
@@ -24,6 +27,10 @@ export default function App() {
         <Route path="/inventory" element={<Inventory />}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/details" element={<Details />}/>
+        <Route path="/blog">
+            <Route path=":id" element={<BlogSingle />}></Route>
+            <Route path="" element={<Blog />} />
+          </Route>
       </Routes>
       </BrowserRouter>
     </div>
