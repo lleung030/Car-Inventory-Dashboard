@@ -22,7 +22,7 @@ export default function BlogSingle(){
             async function getPosts(){
                 const response = await fetch(`https://my-json-server.typicode.com/Llang8/cars-api/cars/${id}`)
                 const data = await response.json()
-                console.log(data)
+                // console.log(data)
                 setPost(data)
             }
     

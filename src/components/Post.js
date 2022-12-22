@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react"
+import {Link} from 'react-router-dom'
 
 export default function Post(props) {
 
+
+    function buildTitle(){
+        if(props.showLink) {
+            return (
+                <h2><Link to={`/blog/${props.post.name}`}>{props.post.name}</Link></h2>
+            )
+        } else {
+            return (
+                // <h2>{props.post.name}</h2>
+                <h2><Link to={`/blog/${props.post.name}`}>{props.post.name}</Link></h2>
+            )
+        }
+    }
     return (
 
         <div className = "post">
+            {buildTitle()}
 
 
-            <h2>{props.post.name}</h2>
+            {/* <h2><Link to={`/blog/${props.post.name}`}>{props.post.name}</Link></h2> */}
             <p>Year: {props.post.year}</p>
             <p>Selling Price: ${props.post.selling_price}</p>
             <p>Km Driven: {props.post.km_driven} km</p>
@@ -26,3 +41,4 @@ export default function Post(props) {
         
     )
 }
+
